@@ -1,9 +1,9 @@
 
-const colors = ["white", "black", "red", "orange", "yellow", "green", "blue", "purple", "pink"];
+const colors = ["white", "black", "red", "orange", "yellow", "green", "blue", "purple", "pink", "brown", "gray"];
 
 const counterSpan = document.getElementById('counter_span');
 let points = 0;
-counterSpan.textContent = points;
+counterSpan.textContent = `⭐️ ${points}`; // Update the counter span with the initial points;
 let currentColor = "";
 
 const startButton = document.getElementById('start_button');
@@ -42,7 +42,7 @@ function nextColor() {
 startButton.addEventListener('click', () => {
   recognition.start();
   points = 0;
-  counterSpan.textContent = points;
+  counterSpan.textContent = `⭐️ ${points}`; 
   nextColor();
   startButton.style.display = 'none';
   let timer = 20;
@@ -68,7 +68,7 @@ recognition.onresult = function(event) {
       
         if (spokenColor === currentColor) {
           points++;
-          counterSpan.textContent = points;
+          counterSpan.textContent = `⭐️ ${points}`; 
           nextColor();
         }
     }
