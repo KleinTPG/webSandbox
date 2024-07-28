@@ -20,7 +20,6 @@ console.log(SpeechRecognition);
 const recognition = new SpeechRecognition();
 recognition.continuous = true;
 recognition.lang = 'en-US';
-recognition.interimResults = true;
 
 
 function getRandomColor() {
