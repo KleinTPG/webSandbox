@@ -31,6 +31,8 @@ function getRandomColor() {
 
 
 function nextColor() {
+    const instructions_p = document.getElementById('instructions');
+    instructions_p.textContent = "Say the color you see.";
     currentColor = getRandomColor();
     document.body.style.backgroundColor = currentColor;
     console.log("Changing color to: " + currentColor);
@@ -55,6 +57,8 @@ startButton.addEventListener('click', () => {
       timerElement.remove();
       recognition.stop();
       startButton.style.display = 'block';
+      const instructions_p = document.getElementById('instructions');
+      instructions_p.textContent = "Say the color you see.";
     }
     timer--;
   }, 1000);
@@ -64,13 +68,17 @@ startButton.addEventListener('click', () => {
 recognition.onresult = function(event) {
     for(let i=event.resultIndex; i<event.results.length; i++) {
         const spokenColor = event.results[i][0].transcript.toLowerCase().trim();
-        console.log("Heard you say: " + spokenColor);
       
         if (spokenColor === currentColor) {
           points++;
           counterSpan.textContent = `⭐️ ${points}`; 
           nextColor();
         }
+        else
+      {
+        const instructions_p = document.getElementById('instructions');
+        instructions_p.textContent = "Not " + currentColor + ", try again.";
+      }
     }
 
 };
