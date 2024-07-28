@@ -75,10 +75,10 @@ recognition.onresult = function(event) {
           nextColor();
         }
         else
-      {
-        const instructions_p = document.getElementById('instructions');
-        instructions_p.textContent = "Not " + currentColor + ", try again.";
-      }
+        {
+          const instructions_p = document.getElementById('instructions');
+          instructions_p.textContent = "Not " + spokenColor + ", try again.";
+        }
     }
 
 };
